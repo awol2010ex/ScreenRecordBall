@@ -145,6 +145,11 @@ class ViewManager(val context : Context){
         }
         windowManager.addView(floatBall, floatBallParams)
     }
+    fun  hideFloatBall(){
+        if (floatBall != null) {
+            windowManager.removeView(floatBall)
+        }
+    }
 
     //显示底部菜单
     private fun showFloatMenu() {

@@ -31,7 +31,7 @@ class FloatBall(context: Context?) : View(context) {
         textPaint.isAntiAlias=true
         textPaint.setFakeBoldText(true)
 
-        val src = BitmapFactory.decodeResource(resources, R.drawable.ninja)
+        val src = BitmapFactory.decodeResource(resources, R.drawable.recorder_ball)
         //将图片裁剪到指定大小
         bitmap = Bitmap.createScaledBitmap(src, ball_width, ball_height, true)
     }
@@ -42,6 +42,7 @@ class FloatBall(context: Context?) : View(context) {
     }
 
     protected override fun onDraw(canvas: Canvas) {
+        /*
         if (!isDrag) {
             canvas.drawCircle((ball_width / 2).toFloat(), (ball_height / 2).toFloat(), (ball_width / 2).toFloat(), ballPaint)
             val textWidth = textPaint.measureText(ball_text)
@@ -49,9 +50,12 @@ class FloatBall(context: Context?) : View(context) {
             val dy = -(fontMetrics.descent + fontMetrics.ascent) / 2
             canvas.drawText(ball_text, ball_width / 2 - textWidth / 2, ball_height / 2 + dy, textPaint)
         } else {
+        */
             //正在被拖动时则显示指定图片
             canvas.drawBitmap(bitmap, 0f, 0f, null)
+        /*
         }
+        */
     }
 
     //设置当前移动状态

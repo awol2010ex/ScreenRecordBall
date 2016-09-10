@@ -10,14 +10,20 @@ import com.towery.screenrecordball.manager.ViewManager
  * Created by User on 2016/9/7.
  */
 class StartFloatBallService :Service(){
+    var manager: ViewManager? = null;
     override fun onBind(p0: Intent?): IBinder? {
        return null
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        manager!!.hideFloatBall()
+    }
+
     override fun onCreate() {
-        Log.v("start","StartFloatBallService")
-        val manager = ViewManager.getInstance(this)
-        manager.showFloatBall()
+
+        manager = ViewManager.getInstance(this)
+        manager!!.showFloatBall()
         super.onCreate()
     }
 
