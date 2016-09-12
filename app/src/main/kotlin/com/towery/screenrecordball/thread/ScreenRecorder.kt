@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicBoolean
 /**
  * Created by User on 2016/9/10.
  */
-class ScreenRecorder(target: (() -> Unit)?, width: Int, height: Int, bitrate: Int, dpi: Int, mp: MediaProjection?, dstPath: String) : Thread(target) {
+class ScreenRecorder(width: Int, height: Int, bitrate: Int, dpi: Int, mp: MediaProjection?, dstPath: String) : Thread() {
     private val TAG = "ScreenRecorder"
 
     private var mWidth: Int = 0
@@ -55,7 +55,7 @@ class ScreenRecorder(target: (() -> Unit)?, width: Int, height: Int, bitrate: In
         mQuit.set(true)
     }
 
-    override fun run() {
+     override fun run() {
         try {
             try {
                 prepareEncoder()

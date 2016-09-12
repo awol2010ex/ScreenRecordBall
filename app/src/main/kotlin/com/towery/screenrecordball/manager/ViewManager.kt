@@ -8,8 +8,10 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.View.OnTouchListener
 import android.view.WindowManager
+import com.towery.screenrecordball.event.MessageEvent
 import com.towery.screenrecordball.ui.FloatBall
 import com.towery.screenrecordball.ui.FloatMenu
+import org.greenrobot.eventbus.EventBus
 import org.jetbrains.anko.onTouch
 
 /**
@@ -87,6 +89,10 @@ class ViewManager(val context : Context){
                 //floatMenu!!.startAnimation()
 
                 floatBall!!.setIsRecording(!floatBall!!.getIsRecording())
+
+                val msg =MessageEvent();
+                msg.message= floatBall!!.getIsRecording().toString()
+                EventBus.getDefault().post( msg);
             }
         }
         floatBall!!.setOnTouchListener(touchListener)
