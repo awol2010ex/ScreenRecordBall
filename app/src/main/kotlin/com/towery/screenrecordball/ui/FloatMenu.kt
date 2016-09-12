@@ -73,7 +73,7 @@ class FloatMenu(context: Context?) : LinearLayout(context) {
             onTouch { view, motionEvent: MotionEvent ->
                    val manager = ViewManager.getInstance(context!!)
                    manager.showFloatBall()
-                    manager.hideFloatMenu()
+                   // manager.hideFloatMenu()
                     false
 
             }

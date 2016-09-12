@@ -21,7 +21,7 @@ class ViewManager(val context : Context){
         context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
     };
     var floatBall: FloatBall? = null
-    var floatMenu: FloatMenu? = null
+   // var floatMenu: FloatMenu? = null
 
     private var floatBallParams: WindowManager.LayoutParams? = null
 
@@ -30,7 +30,7 @@ class ViewManager(val context : Context){
 
     init{
         floatBall =  FloatBall(context);
-        floatMenu =  FloatMenu(context);
+       // floatMenu =  FloatMenu(context);
         val touchListener = object : OnTouchListener {
             internal var startX: Float = 0.toFloat()
             internal var startY: Float = 0.toFloat()
@@ -82,9 +82,11 @@ class ViewManager(val context : Context){
         val clickListener = object : View.OnClickListener {
 
             override fun onClick(v: View) {
-                windowManager.removeView(floatBall)
-                showFloatMenu()
-                floatMenu!!.startAnimation()
+                //windowManager.removeView(floatBall)
+                //showFloatMenu()
+                //floatMenu!!.startAnimation()
+
+                floatBall!!.setIsRecording(!floatBall!!.getIsRecording())
             }
         }
         floatBall!!.setOnTouchListener(touchListener)
@@ -152,6 +154,7 @@ class ViewManager(val context : Context){
     }
 
     //显示底部菜单
+    /*
     private fun showFloatMenu() {
         if (floatMenuParams == null) {
             floatMenuParams = WindowManager.LayoutParams()
@@ -164,11 +167,13 @@ class ViewManager(val context : Context){
         }
         windowManager.addView(floatMenu, floatMenuParams)
     }
-
+    */
+/*
     //隐藏底部菜单
     fun hideFloatMenu() {
         if (floatMenu != null) {
             windowManager.removeView(floatMenu)
         }
     }
+    */
 }
