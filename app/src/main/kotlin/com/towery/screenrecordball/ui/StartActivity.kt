@@ -150,7 +150,8 @@ class StartActivity : AppCompatActivity() {
         val bitrate = 6000000
         mRecorder = ScreenRecorder(mWidth, mHeight, bitrate, 1, mediaProjection, file.absolutePath)
         mRecorder!!.start()
-        Toast.makeText(this, "Screen recorder is running...", Toast.LENGTH_SHORT).show()
+        moveTaskToBack(true);
+        //Toast.makeText(this, "Screen recorder is running...", Toast.LENGTH_SHORT).show()
     }
 
 }
